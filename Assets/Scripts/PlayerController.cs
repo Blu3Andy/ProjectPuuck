@@ -48,12 +48,12 @@ public class PlayerController : MonoBehaviour
     {
         if (moveInput != Vector2.zero) Move();
 
-        print(rb.velocity.magnitude);
+        //print(rb.velocity.magnitude);
     }
 
     private  void Move()
     {
-        print(moveInput);
+        //print(moveInput);
        
 
         Vector3 acutalForward = Vector3.Cross(mainCamera.right, transform.up);
