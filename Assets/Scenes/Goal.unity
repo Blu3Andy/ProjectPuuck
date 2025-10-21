@@ -1067,7 +1067,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d561aceae4482684582fb492347fe60a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  winGoals: 10
+  timerInit: 180
 --- !u!4 &930626729
 Transform:
   m_ObjectHideFlags: 0
@@ -1454,8 +1454,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35f4b63222aefcb4d82e7cdeb587f09c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  puckObj: {fileID: 0}
-  gameMaterObj: {fileID: 0}
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 8
+  goalEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1056425518
 GameObject:
   m_ObjectHideFlags: 0
@@ -1486,8 +1490,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35f4b63222aefcb4d82e7cdeb587f09c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  puckObj: {fileID: 0}
-  gameMaterObj: {fileID: 0}
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 8
+  goalEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 930626728}
+        m_TargetAssemblyTypeName: GameMasterLogic, Assembly-CSharp
+        m_MethodName: GoalsCounterUp
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 930626728}
+        m_TargetAssemblyTypeName: GameMasterLogic, Assembly-CSharp
+        m_MethodName: PuckReset
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1546361769}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!4 &1056425520
 Transform:
   m_ObjectHideFlags: 0
@@ -1684,7 +1716,7 @@ GameObject:
   - component: {fileID: 1209546198}
   - component: {fileID: 1209546200}
   - component: {fileID: 1209546199}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cylinder (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1875,7 +1907,7 @@ GameObject:
   - component: {fileID: 1546361771}
   - component: {fileID: 1546361770}
   - component: {fileID: 1546361775}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Puck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
