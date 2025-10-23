@@ -13,6 +13,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float maxSpeed;
     [SerializeField] private float maxWalkSpeed = 10f;
     [SerializeField] private float maxSprintSpeed = 15f;
+
+    [SerializeField] private float boostRegulator = 0.5f;
     
 
     private Vector2 moveInput;
@@ -27,16 +29,6 @@ public class PlayerController : MonoBehaviour
         ragDollController = gameObject.GetComponent<RagdollController>();
 
         mainCamera = Camera.main.transform;
-
-        input.Player.Movement.started += OnWalkInput;
-        input.Player.Movement.performed += OnWalkInput;
-        input.Player.Movement.canceled += OnWalkInput;
-
-        input.Player.Sprint.started += i => maxSpeed = maxSprintSpeed;
-        input.Player.Sprint.performed += i => maxSpeed = maxSprintSpeed;
-        input.Player.Sprint.canceled += i => maxSpeed = maxWalkSpeed;
-
-        input.Player.Ragdoll.started += i => StartRagdoll();
     }
     
     void Start()
@@ -47,15 +39,12 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         if (moveInput != Vector2.zero) Move();
-
-        //print(rb.velocity.magnitude);
     }
+
+
 
     private  void Move()
     {
-        //print(moveInput);
-       
-
         Vector3 acutalForward = Vector3.Cross(mainCamera.right, transform.up);
         Vector3 actualRight = Vector3.Cross(transform.up, acutalForward);
 
@@ -66,18 +55,29 @@ public class PlayerController : MonoBehaviour
          if(rb.velocity.magnitude <= maxSpeed) rb.AddForce(direction * speed, ForceMode.Force);
     }
 
-    private void OnWalkInput(InputAction.CallbackContext context)
+    public void OnWalkInput(InputAction.CallbackContext context)
     {
+        if (context.canceled)
+        {
+            moveInput = Vector2.zero;
+            return;
+        }
+       
         moveInput = context.ReadValue<Vector2>();
 
         movement = new Vector3(moveInput.x, 0, moveInput.y).normalized;
     }
 
-    private void StartRagdoll()
+    public void OnSprint(InputAction.CallbackContext context)
+    {
+        if (context.started) maxSpeed = maxSprintSpeed;
+        if (context.canceled) maxSpeed = maxWalkSpeed;
+    }
+
+    public void StartRagdoll()
     {
         ragDollController.startRagdoll();
-
-        if (rb.velocity.magnitude > maxWalkSpeed) rb.AddForce(rb.velocity, ForceMode.Impulse);
+        if (rb.velocity.magnitude > maxWalkSpeed) rb.AddForce(rb.velocity * boostRegulator, ForceMode.Impulse);
     }
     
     void OnEnable()
