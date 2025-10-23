@@ -239,7 +239,7 @@ MonoBehaviour:
   maxSpeed: 0
   maxWalkSpeed: 5
   maxSprintSpeed: 10
-  boostRegulator: 0.35
+  boostRegulator: 0.5
 --- !u!114 &3936995018075739627
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -80,7 +80,12 @@ public class PlayerController : MonoBehaviour
         ragDollController.startRagdoll();
         if (rb.velocity.magnitude > maxWalkSpeed) rb.AddForce(rb.velocity * boostRegulator, ForceMode.Impulse);
     }
-    
+
+    public void OnPlayerJoined(PlayerInput input)
+    {
+        print("I player: " + gameObject.name + " joined");
+    }
+
     void OnEnable()
     {
         input.Player.Enable();
