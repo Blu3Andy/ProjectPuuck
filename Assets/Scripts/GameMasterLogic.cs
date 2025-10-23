@@ -18,9 +18,10 @@ public class GameMasterLogic : MonoBehaviour
 
     void Update()
     {
-        if (timerInit <= 0.1f)
+        if (timerInit >= 0.1f)
         {
             timerInit -= Time.deltaTime;
+            print(timerInit);
         }
         else
         {
