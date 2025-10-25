@@ -21,7 +21,6 @@ public class GameMasterLogic : MonoBehaviour
         if (timerInit >= 0.1f)
         {
             timerInit -= Time.deltaTime;
-            print(timerInit);
         }
         else
         {

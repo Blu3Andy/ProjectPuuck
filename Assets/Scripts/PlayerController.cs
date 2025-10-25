@@ -83,7 +83,7 @@ public class PlayerController : MonoBehaviour
 
     public void OnPlayerJoined(PlayerInput input)
     {
-        print("I player: " + gameObject.name + " joined");
+        print("I player: " + gameObject.name + input + " joined");
     }
 
     void OnEnable()
