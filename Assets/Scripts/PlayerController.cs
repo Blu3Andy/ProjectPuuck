@@ -28,7 +28,7 @@ public class PlayerController : MonoBehaviour
         rb = gameObject.GetComponent<Rigidbody>();
         ragDollController = gameObject.GetComponent<RagdollController>();
 
-        mainCamera = Camera.main.transform;
+        //mainCamera = Camera.main.transform;
     }
     
     void Start()
@@ -45,8 +45,8 @@ public class PlayerController : MonoBehaviour
 
     private  void Move()
     {
-        Vector3 acutalForward = Vector3.Cross(mainCamera.right, transform.up);
-        Vector3 actualRight = Vector3.Cross(transform.up, acutalForward);
+        Vector3 acutalForward = Vector3.Cross(mainCamera.right, gameObject.transform.up);
+        Vector3 actualRight = Vector3.Cross(gameObject.transform.up, acutalForward);
 
         Vector3 direction = (acutalForward * movement.z + actualRight * movement.x).normalized;
 
@@ -81,14 +81,17 @@ public class PlayerController : MonoBehaviour
         if (rb.velocity.magnitude > maxWalkSpeed) rb.AddForce(rb.velocity * boostRegulator, ForceMode.Impulse);
     }
 
-    public void OnPlayerJoined(PlayerInput input)
+    public void SetCamera(Transform cam)
     {
-        print("I player: " + gameObject.name + input + " joined");
+        print(cam.transform.name);
+        mainCamera = cam;
     }
 
     void OnEnable()
     {
         input.Player.Enable();
+
+        mainCamera = Camera.main.transform;
     }
 
     void OnDisable()
