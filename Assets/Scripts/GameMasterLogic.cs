@@ -7,7 +7,8 @@ public class GameMasterLogic : MonoBehaviour
     // muss noch weiter gemacht werden weil mache es nur f+r ein Spieler, da noch kein KOOP drinne ist 
 
     [SerializeField] private float timerInit;
-    private int goalCounter;
+    [SerializeField] private int goalCounterTeam1;
+    [SerializeField] private int goalCounterTeam2;
     private bool isStarting = false;
     private Vector3 savedPosition = new(0, 0, 0);
 
@@ -30,7 +31,7 @@ public class GameMasterLogic : MonoBehaviour
 
     public void GoalsCounterUp()
     {
-        goalCounter++;
+        //goalCounter++;
     }
 
     public void PuckReset(GameObject puckObj)
@@ -47,7 +48,8 @@ public class GameMasterLogic : MonoBehaviour
 
     void StartGame()
     {
-        goalCounter = 0;
+        goalCounterTeam1 = 0;
+        goalCounterTeam2 = 0;
         isStarting = true;
     }    
 }

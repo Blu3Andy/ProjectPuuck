@@ -20,6 +20,11 @@ public class Lobby : MonoBehaviour
     
     public void StartGame()
     {
-        SceneManager.LoadScene("SampleScene");
+        if (playerList.Count % 2 == 0)
+        {
+            SceneManager.LoadScene("SampleScene");
+        }
+        // Otherwise FreeForAll
+        
     }
 }

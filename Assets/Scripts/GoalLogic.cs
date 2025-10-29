@@ -7,6 +7,7 @@ public class GoalLogic : MonoBehaviour
 {
     [SerializeField] private LayerMask layerMask;
     [SerializeField] private UnityEvent goalEvent;
+
     
     void OnTriggerEnter(Collider other)
     {

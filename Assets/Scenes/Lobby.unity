@@ -573,6 +573,7 @@ GameObject:
   - component: {fileID: 498742594}
   - component: {fileID: 498742593}
   - component: {fileID: 498742592}
+  - component: {fileID: 498742596}
   m_Layer: 0
   m_Name: TeamBlueBumper
   m_TagString: Untagged
@@ -666,6 +667,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &498742596
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 498742591}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd24f10f51e94d048bb7394a1e8b7206, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  teamID: 2
+  teamColor: {fileID: 2100000, guid: bd0705ed534d37740ac42cd468e875a8, type: 2}
 --- !u!1 &551710187
 GameObject:
   m_ObjectHideFlags: 0
@@ -1721,7 +1736,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd24f10f51e94d048bb7394a1e8b7206, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  teamID: 0
+  teamID: 1
+  teamColor: {fileID: 2100000, guid: 62e29ab002273b64084a72e1d62bf2ef, type: 2}
 --- !u!1 &1713382781
 GameObject:
   m_ObjectHideFlags: 0
