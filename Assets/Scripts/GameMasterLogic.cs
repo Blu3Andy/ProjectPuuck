@@ -42,8 +42,7 @@ public class GameMasterLogic : MonoBehaviour
     void EndGame()
     {
         print("SPIEL vorbei");
-        //Player disablen oder so 
-        //Puck Disablen oder so
+        //Nächste Area Laden
     }
 
     void StartGame()
