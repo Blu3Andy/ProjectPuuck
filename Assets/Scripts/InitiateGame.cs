@@ -37,10 +37,14 @@ public class InitiateGame : MonoBehaviour
             int playerTeamID = StaticData.playersInGame[i].GetComponent<PlayerTeamLogic>().getTeamID();
             if (playerTeamID == 1) team1.Add(StaticData.playersInGame[i]);
             if (playerTeamID == 2) team2.Add(StaticData.playersInGame[i]);
-        
             //if (i % 2 == 0) StaticData.playersInGame[i].transform.position = rightSpawn.position;
             //if (i % 2 != 0) StaticData.playersInGame[i].transform.position = leftSpawn.position;
         }
+    }
+
+    public List <GameObject> GetTeamList()
+    {
+        return null;
     }
     
     

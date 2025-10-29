@@ -63,6 +63,10 @@ public class StartBumperLogic : MonoBehaviour
     {
         currentPlayerCount = set;
     }
+    public int getCurrentPlayerCount()
+    {
+        return currentPlayerCount;
+    }
 
     private void Deactivate()
     {
