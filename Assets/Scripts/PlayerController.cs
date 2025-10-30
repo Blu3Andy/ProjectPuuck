@@ -11,10 +11,11 @@ public class PlayerController : MonoBehaviour
     private RagdollController ragDollController;
 
     [SerializeField] private float speed;
-    [SerializeField] private float maxSpeed;
     [SerializeField] private float maxWalkSpeed = 10f;
     [SerializeField] private float maxSprintSpeed = 15f;
     [SerializeField] private float boostRegulator = 0.5f;
+
+    private float maxSpeed;
     
     private Vector2 moveInput;
     private Vector3 movement;
