@@ -12,7 +12,7 @@ public class PlayerTeamLogic : MonoBehaviour
     {
         teamID = newTeamID;
     }
-    public int getTeamID()
+    public int GetTeamID()
     {
         return teamID;
     }

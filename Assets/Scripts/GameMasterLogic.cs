@@ -4,18 +4,14 @@ using UnityEngine;
 
 public class GameMasterLogic : MonoBehaviour
 {
-    // muss noch weiter gemacht werden weil mache es nur f+r ein Spieler, da noch kein KOOP drinne ist 
-
     [SerializeField] private float timerInit;
-    [SerializeField] private int goalCounterTeam1;
-    [SerializeField] private int goalCounterTeam2;
-    private bool isStarting = false;
-    private Vector3 savedPosition = new(0, 0, 0);
+    [SerializeField] private int goalCounterTeam1 = 0;
+    [SerializeField] private int goalCounterTeam2 = 0;
 
-    void Start()
-    {
-        StartGame(); //Is erstmal nur Platzhalter 
-    }
+    public GameObject SignTeam1;
+    public GameObject SignTeam2;
+
+    private Vector3 savedPosition = new(0, 0, 0);
 
     void Update()
     {
@@ -29,27 +25,32 @@ public class GameMasterLogic : MonoBehaviour
         }
     }
 
-    public void GoalsCounterUp()
+    public void GoalsCounterUp(int teamID)
     {
-        //goalCounter++;
+        if (teamID == 1)
+        {
+            goalCounterTeam1++;
+            SignTeam1.GetComponent<GoalSignLogic>().CountUp();
+            
+
+        }
+        else if(teamID == 2)
+        {
+            goalCounterTeam2++;
+            SignTeam2.GetComponent<GoalSignLogic>().CountUp();
+        }
     }
 
     public void PuckReset(GameObject puckObj)
-    {
+    {                   
         puckObj.transform.localPosition = savedPosition;
         puckObj.GetComponent<PuckLogic>().StopPuck();
+        
     }
 
     void EndGame()
     {
-        print("SPIEL vorbei");
+        print("END");
         //Nächste Area Laden
-    }
-
-    void StartGame()
-    {
-        goalCounterTeam1 = 0;
-        goalCounterTeam2 = 0;
-        isStarting = true;
-    }    
+    } 
 }

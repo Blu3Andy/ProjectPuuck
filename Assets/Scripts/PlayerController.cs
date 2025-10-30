@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -82,6 +83,11 @@ public class PlayerController : MonoBehaviour
     {
         print(cam.transform.name);
         mainCamera = cam;
+    }
+    public void StopPlayer()
+    {
+        rb.velocity = Vector3.zero;
+        rb.angularVelocity = Vector3.zero;
     }
 
     void OnEnable()
