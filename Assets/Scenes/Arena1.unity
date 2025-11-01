@@ -1042,8 +1042,59 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2039142129302592698, guid: 6d16990efe51e244383cb367c7dea744, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1822543624}
   m_SourcePrefab: {fileID: 100100000, guid: 6d16990efe51e244383cb367c7dea744, type: 3}
+--- !u!1 &1822543623 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2039142129302592698, guid: 6d16990efe51e244383cb367c7dea744, type: 3}
+  m_PrefabInstance: {fileID: 1822543622}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1822543624
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1822543623}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e50633c2bffc4da4e9b2de64764eb03a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SFXEventObjectLayer:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1713779427}
+        m_TargetAssemblyTypeName: SFXLogic, Assembly-CSharp
+        m_MethodName: PlayCollisionPuckWall
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  SFXEventObject:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1713779427}
+        m_TargetAssemblyTypeName: SFXLogic, Assembly-CSharp
+        m_MethodName: PlayCollisionPuckPlayer
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  layerMaskForColl: ArenaObj
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
