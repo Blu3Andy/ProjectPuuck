@@ -2,18 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
     private InputMaster input;
     private Rigidbody rb;
-    private RagdollController ragDollController;
-
+   
     [SerializeField] private float speed;
     [SerializeField] private float maxWalkSpeed = 10f;
     [SerializeField] private float maxSprintSpeed = 15f;
     [SerializeField] private float boostRegulator = 0.5f;
+
+    [SerializeField] private UnityEvent ragdollEvent;
 
     private float maxSpeed;
     
@@ -25,8 +27,7 @@ public class PlayerController : MonoBehaviour
     {
         input = new InputMaster();
         rb = gameObject.GetComponent<Rigidbody>();
-        ragDollController = gameObject.GetComponent<RagdollController>();
-
+        
         //mainCamera = Camera.main.transform;
     }
     
@@ -51,7 +52,12 @@ public class PlayerController : MonoBehaviour
 
         //transform.position += speed * Time.deltaTime * direction;
 
-         if(rb.velocity.magnitude <= maxSpeed) rb.AddForce(direction * speed, ForceMode.Force);
+        Quaternion targetRotation = Quaternion.LookRotation(direction, transform.up);
+
+        Quaternion newRotation = Quaternion.Slerp(rb.rotation, targetRotation, Time.fixedDeltaTime * 3f);
+        rb.MoveRotation(newRotation);
+
+        if(rb.velocity.magnitude <= maxSpeed) rb.AddForce(direction * speed, ForceMode.Force);
     }
 
     public void OnWalkInput(InputAction.CallbackContext context)
@@ -76,7 +82,7 @@ public class PlayerController : MonoBehaviour
     public void StartRagdoll()
     {
         if (this.enabled == false) return;
-        ragDollController.startRagdoll();
+        ragdollEvent.Invoke();
         if (rb.velocity.magnitude > maxWalkSpeed) rb.AddForce(rb.velocity * boostRegulator, ForceMode.Impulse);
     }
 
@@ -89,6 +95,11 @@ public class PlayerController : MonoBehaviour
     {
         rb.velocity = Vector3.zero;
         rb.angularVelocity = Vector3.zero;
+    }
+
+    public void EnablePlayer()
+    {
+        transform.position += new Vector3(0, 0.3f, 0);
     }
 
     void OnEnable()
