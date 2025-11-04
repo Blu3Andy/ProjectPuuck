@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
 {
     private InputMaster input;
     private Rigidbody rb;
+    private Animator animator;
    
     [SerializeField] private float speed;
     [SerializeField] private float maxWalkSpeed = 10f;
@@ -23,12 +24,13 @@ public class PlayerController : MonoBehaviour
     private Vector3 movement;
     private Transform mainCamera;
 
+    private string currentAnimation;
+
     void Awake()
     {
         input = new InputMaster();
         rb = gameObject.GetComponent<Rigidbody>();
-        
-        //mainCamera = Camera.main.transform;
+        animator = gameObject.GetComponent<Animator>();
     }
     
     void Start()
@@ -38,7 +40,17 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if (moveInput != Vector2.zero) Move();
+        if (moveInput != Vector2.zero)
+        {
+            Move();
+            PlayAnimation("Run");    
+        }
+        else
+        {
+            PlayAnimation("Idle");
+        } 
+
+        
     }
 
 
@@ -100,6 +112,12 @@ public class PlayerController : MonoBehaviour
     public void EnablePlayer()
     {
         transform.position += new Vector3(0, 0.3f, 0);
+    }
+
+    private void PlayAnimation(string animation)
+    {
+        if (currentAnimation != animation) animator.CrossFade(animation, 0.3f);
+        currentAnimation = animation;
     }
 
     void OnEnable()
