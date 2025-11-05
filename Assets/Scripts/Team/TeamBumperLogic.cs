@@ -10,13 +10,10 @@ public class TeamBumperLogic : MonoBehaviour
     void OnCollisionEnter(Collision collision)
     {
         GameObject player = collision.gameObject;
-        player.GetComponent<PlayerTeamLogic>().SetTeamID(teamID); 
+        player.GetComponent<PlayerTeamLogic>().SetTeam(teamID,teamColor); 
     }
 
-    //void ChangeColors(GameObject gameObject)
-    //{
-    //    gameObject.GetComponent<Renderer>().material.CopyPropertiesFromMaterial(teamColor);
-    //}
+    
 
     void HideBumper()
     {

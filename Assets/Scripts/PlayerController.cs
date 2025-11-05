@@ -43,7 +43,7 @@ public class PlayerController : MonoBehaviour
         if (moveInput != Vector2.zero)
         {
             Move();
-            PlayAnimation("Run");    
+           
         }
         else
         {
@@ -69,7 +69,9 @@ public class PlayerController : MonoBehaviour
         Quaternion newRotation = Quaternion.Slerp(rb.rotation, targetRotation, Time.fixedDeltaTime * 3f);
         rb.MoveRotation(newRotation);
 
-        if(rb.velocity.magnitude <= maxSpeed) rb.AddForce(direction * speed, ForceMode.Force);
+        if (rb.velocity.magnitude <= maxSpeed) rb.AddForce(direction * speed, ForceMode.Force);
+        
+        PlayAnimation("Run");    
     }
 
     public void OnWalkInput(InputAction.CallbackContext context)
