@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     private InputMaster input;
     private Rigidbody rb;
     private Animator animator;
+
    
     [SerializeField] private float speed;
     [SerializeField] private float maxWalkSpeed = 10f;
@@ -17,7 +18,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float boostRegulator = 0.5f;
 
     [SerializeField] private UnityEvent ragdollEvent;
-
+    [SerializeField] private UnityEvent<bool> walkSetSFXEvent;
+    [SerializeField] private UnityEvent <bool> SlideSetSFXEvent;
     private float maxSpeed;
     
     private Vector2 moveInput;
@@ -40,17 +42,16 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        
         if (moveInput != Vector2.zero)
         {
             Move();
-            PlayAnimation("Run");    
+            PlayAnimation("Run");
         }
         else
         {
             PlayAnimation("Idle");
-        } 
-
-        
+        }    
     }
 
 
@@ -96,6 +97,7 @@ public class PlayerController : MonoBehaviour
         if (this.enabled == false) return;
         RagdollEvent();
         if (rb.velocity.magnitude > maxWalkSpeed) rb.AddForce(rb.velocity * boostRegulator, ForceMode.Impulse);
+        
     }
 
     public void RagdollEvent()
@@ -128,12 +130,23 @@ public class PlayerController : MonoBehaviour
     void OnEnable()
     {
         input.Player.Enable();
-
         mainCamera = Camera.main.transform;
+
+        walkSetSFXEvent.Invoke(true);
+        SlideSetSFXEvent.Invoke(false);
     }
 
     void OnDisable()
     {
         input.Disable();
+
+        walkSetSFXEvent.Invoke(false);
+        SlideSetSFXEvent.Invoke(true);
+        
+    }
+
+    public float GetSpeed()
+    {
+        return rb.velocity.magnitude;
     }
 }
