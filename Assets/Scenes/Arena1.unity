@@ -1861,6 +1861,17 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97cd8c2c2b9837c41b49e9f4258fac00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SFX:
+  - {fileID: 8300000, guid: 5f52747275e1944449217a06270c0b80, type: 3}
+  - {fileID: 8300000, guid: 5d6cd500be596cd4091ca6bc5b0aab35, type: 3}
+  - {fileID: 8300000, guid: 9cbdd6ae1e5842546ad70be6fe7467c1, type: 3}
+  - {fileID: 8300000, guid: 1b2df5087666972439c2795cdd83fafe, type: 3}
+--- !u!82 &1713779428
+AudioSource:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
