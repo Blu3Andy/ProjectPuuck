@@ -6,9 +6,6 @@ public class SFXLogic : MonoBehaviour
 {
 
     public AudioClip[] SFX;
-    public AudioClip[] WallCollSFX;
-
-
     private AudioSource audioSrc;
 
     void Start()
@@ -16,15 +13,10 @@ public class SFXLogic : MonoBehaviour
         audioSrc = gameObject.GetComponent<AudioSource>();
     }
 
-    public void PlayCollisionPuckPlayer()
+    public void PlaySFX()
     {
         PlayRandomSound(SFX);
     }
-    public void PlayCollisionPuckWall()
-    {
-        PlayRandomSound(WallCollSFX);
-    }
-
 
     private void PlayRandomSound(AudioClip[] SfxClips)
     {
