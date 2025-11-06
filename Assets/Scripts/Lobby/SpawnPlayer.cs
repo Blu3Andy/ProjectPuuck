@@ -13,7 +13,9 @@ public class SpawnPlayer : MonoBehaviour
     {
         player.transform.position = spawn.position;
 
-        player.GetComponent<Rigidbody>().AddExplosionForce(knochBackForce, transform.position + new Vector3(-2, 0, 0), knochBackRadius);
+        //player.GetComponent<PlayerController>().RagdollEvent();
+
+        player.GetComponent<Rigidbody>().AddExplosionForce(knochBackForce, transform.position + new Vector3(-4, 0, 0), knochBackRadius);
     }
 
     public void makeBoom()

@@ -95,9 +95,14 @@ public class PlayerController : MonoBehaviour
     public void StartRagdoll()
     {
         if (this.enabled == false) return;
-        ragdollEvent.Invoke();
+        RagdollEvent();
         if (rb.velocity.magnitude > maxWalkSpeed) rb.AddForce(rb.velocity * boostRegulator, ForceMode.Impulse);
         
+    }
+
+    public void RagdollEvent()
+    {
+        ragdollEvent.Invoke();
     }
 
     public void SetCamera(Transform cam)
