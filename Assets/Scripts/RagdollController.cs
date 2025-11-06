@@ -15,7 +15,7 @@ public class RagdollController : MonoBehaviour
 
     [SerializeField] private UnityEvent ragdollStopEvent;
 
-    private void Awake()
+    private void OnEnable()
     {
         playerController = gameObject.GetComponent<PlayerController>();
     }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GameMasterLogic : MonoBehaviour
 {
-    [SerializeField] private float timerInit;
+    [SerializeField] private float timerInit = 180;
     [SerializeField] private int goalCounterTeam1 = 0;
     [SerializeField] private int goalCounterTeam2 = 0;
 
@@ -30,14 +30,14 @@ public class GameMasterLogic : MonoBehaviour
         if (teamID == 1)
         {
             goalCounterTeam1++;
-            SignTeam1.GetComponent<GoalSignLogic>().CountUp();
+            //SignTeam1.GetComponent<GoalSignLogic>()?.CountUp();
             
 
         }
         else if(teamID == 2)
         {
             goalCounterTeam2++;
-            SignTeam2.GetComponent<GoalSignLogic>().CountUp();
+            //SignTeam2.GetComponent<GoalSignLogic>()?.CountUp();
         }
     }
 
