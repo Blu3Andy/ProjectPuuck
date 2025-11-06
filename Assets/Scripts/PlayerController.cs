@@ -26,6 +26,8 @@ public class PlayerController : MonoBehaviour
 
     private string currentAnimation;
 
+    private bool isMoving = false;
+
     void Awake()
     {
         input = new InputMaster();
@@ -42,18 +44,22 @@ public class PlayerController : MonoBehaviour
     {
         if (moveInput != Vector2.zero)
         {
-            Move();
+            isMoving = true;
            
         }
         else
         {
+            isMoving = false;
             PlayAnimation("Idle");
         } 
 
         
     }
 
-
+    private void FixedUpdate()
+    {
+        if (isMoving) Move();
+    }
 
     private  void Move()
     {

@@ -99,7 +99,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 112
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
 --- !u!95 &8617812551910355587
 Animator:
   serializedVersion: 5
@@ -215,10 +215,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d05db3280117504c898ae95ee5cad8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 4
-  maxWalkSpeed: 5
-  maxSprintSpeed: 10
-  boostRegulator: 0.5
+  speed: 8
+  maxWalkSpeed: 8
+  maxSprintSpeed: 14
+  boostRegulator: 0.7
   ragdollEvent:
     m_PersistentCalls:
       m_Calls:
