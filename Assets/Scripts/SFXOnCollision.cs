@@ -7,15 +7,26 @@ using UnityEngine.Events;
 public class SFXOnCollision : MonoBehaviour
 {
 
+    public UnityEvent SFXEventObjectLayer = new();
     public UnityEvent SFXEventObject = new();
-    public LayerMask layerMaskForColl;
+    public String layerMaskForColl;
+    public void StopPuck()
+    {
+        Rigidbody rigForPuck = gameObject.GetComponent<Rigidbody>();
+        rigForPuck.velocity = Vector3.zero;
+        rigForPuck.angularVelocity = Vector3.zero;
+    }
 
     void OnCollisionEnter(Collision collision)
     {
-        if (Helper.IsInLayerMask(collision.gameObject, layerMaskForColl))
+        if (collision.gameObject.layer == LayerMask.NameToLayer(layerMaskForColl))
         {
-            print("Hit Object");
+            SFXEventObjectLayer.Invoke();
+        }
+        else
+        {
             SFXEventObject.Invoke();
-        } 
+        }
+        
     }
 }
