@@ -17,6 +17,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float boostRegulator = 0.5f;
 
     [SerializeField] private UnityEvent ragdollEvent;
+    [SerializeField] private UnityEvent<bool> walkSetSFXEvent;
+    [SerializeField] private UnityEvent <bool> slideSetSFXEvent;
 
     private float maxSpeed;
     
@@ -138,10 +140,19 @@ public class PlayerController : MonoBehaviour
         input.Player.Enable();
 
         mainCamera = Camera.main.transform;
+        walkSetSFXEvent.Invoke(true);
+        slideSetSFXEvent.Invoke(false);
     }
 
     void OnDisable()
     {
         input.Disable();
+        walkSetSFXEvent.Invoke(false);
+        slideSetSFXEvent.Invoke(true);
+    }
+
+    public float GetSpeed()
+    {
+        return rb.velocity.magnitude;
     }
 }
