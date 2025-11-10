@@ -22,7 +22,7 @@ public class Lobby : MonoBehaviour
     {
         if (playerList.Count % 2 == 0)
         {
-            SceneManager.LoadScene("SampleScene");
+            SceneManager.LoadScene("Arena1");
         }
         // Otherwise FreeForAll
         

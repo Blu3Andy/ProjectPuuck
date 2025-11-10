@@ -30,14 +30,14 @@ public class GameMasterLogic : MonoBehaviour
         if (teamID == 1)
         {
             goalCounterTeam1++;
-            //SignTeam1.GetComponent<GoalSignLogic>()?.CountUp();
+            SignTeam1.GetComponent<GoalSignLogic>()?.CountUp();
             
 
         }
         else if(teamID == 2)
         {
             goalCounterTeam2++;
-            //SignTeam2.GetComponent<GoalSignLogic>()?.CountUp();
+            SignTeam2.GetComponent<GoalSignLogic>()?.CountUp();
         }
     }
 

@@ -26,6 +26,8 @@ public class PlayerController : MonoBehaviour
 
     private string currentAnimation;
 
+    private bool isMoving = false;
+
     void Awake()
     {
         input = new InputMaster();
@@ -42,18 +44,22 @@ public class PlayerController : MonoBehaviour
     {
         if (moveInput != Vector2.zero)
         {
-            Move();
-            PlayAnimation("Run");    
+            isMoving = true;
+           
         }
         else
         {
+            isMoving = false;
             PlayAnimation("Idle");
         } 
 
         
     }
 
-
+    private void FixedUpdate()
+    {
+        if (isMoving) Move();
+    }
 
     private  void Move()
     {
@@ -69,7 +75,9 @@ public class PlayerController : MonoBehaviour
         Quaternion newRotation = Quaternion.Slerp(rb.rotation, targetRotation, Time.fixedDeltaTime * 3f);
         rb.MoveRotation(newRotation);
 
-        if(rb.velocity.magnitude <= maxSpeed) rb.AddForce(direction * speed, ForceMode.Force);
+        if (rb.velocity.magnitude <= maxSpeed) rb.AddForce(direction * speed, ForceMode.Force);
+        
+        PlayAnimation("Run");    
     }
 
     public void OnWalkInput(InputAction.CallbackContext context)
