@@ -2940,6 +2940,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7677165219879330351, guid: a25999d73d0630a418832bb5a907b529, type: 3}
+      propertyPath: speed
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 7677165219879330351, guid: a25999d73d0630a418832bb5a907b529, type: 3}
       propertyPath: walkSetSFXEvent.m_PersistentCalls.m_Calls.Array.size
       value: 1
       objectReference: {fileID: 0}
