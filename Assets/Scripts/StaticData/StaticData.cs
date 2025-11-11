@@ -4,5 +4,8 @@ using UnityEngine;
 
 static class StaticData
 {
-    public static List<GameObject> playersInGame =new();
+    public static List<GameObject> playersInGame = new();
+
+    public static string[] currentArenaPlaylist;
+    public static int currentGame = 1;
 }

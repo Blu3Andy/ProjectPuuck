@@ -905,6 +905,51 @@ Transform:
   - {fileID: 777036346}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 89.981, z: 0}
+--- !u!1 &719034210
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 719034212}
+  - component: {fileID: 719034211}
+  m_Layer: 0
+  m_Name: TestScenePrint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &719034211
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 719034210}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86ab766131f9542448bca1bbc66ee69d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scenes: []
+--- !u!4 &719034212
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 719034210}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -27.343403, y: -5.9073915, z: -2.317065}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &758903976
 GameObject:
   m_ObjectHideFlags: 0
@@ -1168,6 +1213,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  arenaMixer: {fileID: 0}
+  maps: []
 --- !u!4 &844699363
 Transform:
   m_ObjectHideFlags: 0
@@ -2201,6 +2248,59 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1170809827}
   m_LocalEulerAnglesHint: {x: 0, y: 134.763, z: 0}
+--- !u!1 &1598105583
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1598105585}
+  - component: {fileID: 1598105584}
+  m_Layer: 0
+  m_Name: ArenaMixer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1598105584
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1598105583}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b966aaf70aa39cc4294eb20e3d08e509, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  arenaPrefix:
+  - playListCue: 1v1
+    playerCount: 2
+  - playListCue: 2v2
+    playerCount: 4
+  - playListCue: freeForAll
+    playerCount: 3
+  matchSize: 3
+  sceneReader: {fileID: 719034211}
+--- !u!4 &1598105585
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1598105583}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -27.343403, y: -5.9073915, z: -2.317065}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1711522723
 GameObject:
   m_ObjectHideFlags: 0
@@ -3164,3 +3264,5 @@ SceneRoots:
   - {fileID: 1129651161}
   - {fileID: 392494011}
   - {fileID: 758903978}
+  - {fileID: 719034212}
+  - {fileID: 1598105585}

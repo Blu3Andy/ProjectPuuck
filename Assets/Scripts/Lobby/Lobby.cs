@@ -9,6 +9,10 @@ public class Lobby : MonoBehaviour
 
     [SerializeField] private UnityEvent<int> updatePlayerCount;
 
+    [SerializeField] private ArenaMixer arenaMixer;
+
+    [SerializeField] private string[] maps;
+
     public void AddJoinedPlayer(GameObject player)
     {
         playerList.Add(player);
@@ -17,14 +21,18 @@ public class Lobby : MonoBehaviour
         DontDestroyOnLoad(player);
         StaticData.playersInGame.Add(player);
     }
-    
+
     public void StartGame()
     {
-        if (playerList.Count % 2 == 0)
-        {
-            SceneManager.LoadScene("Arena1");
-        }
-        // Otherwise FreeForAll
-        
+        arenaMixer.createLevelPlaylist(playerList.Count);
+        updateMapList();
+        //SceneManager.LoadScene(StaticData.currentArenaPlaylist[StaticData.currentGame]);
+
+    }
+    
+    private void updateMapList()
+    {
+        print(Time.time);
+        maps = StaticData.currentArenaPlaylist;
     }
 }

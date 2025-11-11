@@ -17,11 +17,14 @@ public class StartBumperLogic : MonoBehaviour
 
     private HashSet<GameObject> playersHashSet = new();
 
+    private bool isActive = false;
+
     private void Update()
     {
-        if (activePlayer == currentPlayerCount && currentPlayerCount > 1)
+        if (activePlayer == currentPlayerCount && currentPlayerCount > 1 && !isActive)
         {
             startGameEvent.Invoke();
+            isActive = true;
         }
 
         if (currentPlayerCount < 2 && currentPlayerCount > 0)
