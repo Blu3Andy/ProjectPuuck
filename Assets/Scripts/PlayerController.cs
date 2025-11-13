@@ -147,8 +147,10 @@ public class PlayerController : MonoBehaviour
     void OnDisable()
     {
         input.Disable();
+
         walkSetSFXEvent.Invoke(false);
-        slideSetSFXEvent.Invoke(true);
+        slideSetSFXEvent.Invoke(true);  
+
     }
 
     public float GetSpeed()
