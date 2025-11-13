@@ -1214,7 +1214,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   arenaMixer: {fileID: 1598105584}
-  playedRounds: 1
+  playedRounds: 2
   maps: []
 --- !u!4 &844699363
 Transform:
@@ -3384,6 +3384,7 @@ SceneRoots:
   - {fileID: 1170809827}
   - {fileID: 1238295456}
   - {fileID: 844699363}
+  - {fileID: 1598105585}
   - {fileID: 405026281}
   - {fileID: 1101960716}
   - {fileID: 2033445471}
@@ -3395,5 +3396,4 @@ SceneRoots:
   - {fileID: 392494011}
   - {fileID: 758903978}
   - {fileID: 719034212}
-  - {fileID: 1598105585}
   - {fileID: 2083851700}
