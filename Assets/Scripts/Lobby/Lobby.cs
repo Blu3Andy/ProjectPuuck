@@ -32,7 +32,7 @@ public class Lobby : MonoBehaviour
     
     private void updateMapList()
     {
-        print(Time.time);
+        //print(Time.time);
         maps = StaticData.currentArenaPlaylist;
     }
 }

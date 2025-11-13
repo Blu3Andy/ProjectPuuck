@@ -363,7 +363,7 @@ GameObject:
   - component: {fileID: 405026279}
   - component: {fileID: 405026278}
   - component: {fileID: 405026282}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: StartBumper
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1213,7 +1213,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  arenaMixer: {fileID: 0}
+  arenaMixer: {fileID: 1598105584}
   maps: []
 --- !u!4 &844699363
 Transform:
@@ -1614,6 +1614,10 @@ PrefabInstance:
     - target: {fileID: -7029948723529949830, guid: a391f8168e0dde74dbf7f534122317bc, type: 3}
       propertyPath: m_Name
       value: Walls
+      objectReference: {fileID: 0}
+    - target: {fileID: -7029948723529949830, guid: a391f8168e0dde74dbf7f534122317bc, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: -4683669308469848369, guid: a391f8168e0dde74dbf7f534122317bc, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -2278,10 +2282,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   arenaPrefix:
-  - playListCue: 1v1
-    playerCount: 2
   - playListCue: 2v2
-    playerCount: 4
+    playerCount: 2
   - playListCue: freeForAll
     playerCount: 3
   matchSize: 3
@@ -3172,7 +3174,7 @@ GameObject:
   - component: {fileID: 2116242872}
   - component: {fileID: 2116242874}
   - component: {fileID: 2116242873}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

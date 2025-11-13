@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class ArenaMixer : MonoBehaviour
@@ -14,13 +15,14 @@ public class ArenaMixer : MonoBehaviour
 
     private string[] pickedArenas = null;
 
-    private ArenaPrefix empty = new("you have an error with the arena playlist", 0);
+    private ArenaPrefix empty = new("", 0);
 
     public void createLevelPlaylist(int playerCount)
     {
         if (arenaPrefix.Count() < 0) return;
 
-        pickedArenas = sceneReader.PrintScenes(pickArenaPrefix(playerCount).playListCue);
+        pickedArenas = sceneReader.PrintScenes(pickArenaPrefix(playerCount));
+        if (pickedArenas == null) return;
 
         print(pickedArenas.Count());
 
@@ -30,28 +32,30 @@ public class ArenaMixer : MonoBehaviour
     private void pickRandomMaps()
     {
         string[] temp = new string[matchSize];
-        HashSet<string> addedMaps = new();
+        HashSet<int> addedMaps = new();
 
         int i = 0;
-        while (addedMaps.Count < matchSize)
+        while (matchSize > addedMaps.Count)
         {
-            var random = UnityEngine.Random.Range(0, pickedArenas.Count()-1);
-            if (addedMaps.Contains(pickedArenas[random])) break;
+            var random = UnityEngine.Random.Range(0, pickedArenas.Count() );
+            print("range: " + random);
+            if (addedMaps.Contains(random)) continue;
+            addedMaps.Add(random);
             temp[i] = pickedArenas[random];
-            addedMaps.Add(pickedArenas[random]);
             i++;
+            print(addedMaps.Count);
         }
-        
+        print("loop end");
         StaticData.currentArenaPlaylist = temp;
     }
 
-    private ArenaPrefix pickArenaPrefix(int size)
+    private string pickArenaPrefix(int size)
     {
         for (int i = 0; i < arenaPrefix.Count(); i++)
         {
-            if (arenaPrefix[i].playerCount == size) return arenaPrefix[i];
+            if (arenaPrefix[i].playerCount == size) return arenaPrefix[i].playListCue;
         }
-        print(empty.playListCue); // debug if there is a problem with ArenaPrefix
-        return empty;
+        print("you have an error with the arena playlist"); // debug if there is a problem with ArenaPrefix
+        return null;
     }
 }

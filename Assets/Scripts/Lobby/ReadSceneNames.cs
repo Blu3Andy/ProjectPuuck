@@ -19,11 +19,11 @@ public class ReadSceneNames : MonoBehaviour
         }
         return temp.ToArray();
     }
-    [UnityEditor.MenuItem("CONTEXT/ReadSceneNames/Update Scene Names")]
     
     
     public string[] PrintScenes(string input)
     {
+        if (input == null) return null;
         return ReadNames(input);
     }
     
