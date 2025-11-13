@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class GameMasterLogic : MonoBehaviour
 {
-    [SerializeField] private float timerInit = 10;
+    [SerializeField] private float timerInit;
     [SerializeField] private int goalCounterTeam1 = 0;
     [SerializeField] private int goalCounterTeam2 = 0;
 
@@ -45,8 +45,7 @@ public class GameMasterLogic : MonoBehaviour
     public void PuckReset(GameObject puckObj)
     {                   
         puckObj.transform.localPosition = savedPosition.transform.position;
-        puckObj.GetComponent<PuckLogic>().StopPuck();
-        
+        puckObj.GetComponent<PuckLogic>().StopPuck();   
     }
 
     void EndGame()
@@ -61,13 +60,18 @@ public class GameMasterLogic : MonoBehaviour
         }
 
         SceneManager.LoadScene(StaticData.currentArenaPlaylist[StaticData.currentGame]);
-    } 
-    
+    }
+
     private void DestroyList(List<GameObject> toDestory)
     {
-        for(int i = 0; i < toDestory.Count; i ++)
+        for (int i = 0; i < toDestory.Count; i++)
         {
             Destroy(toDestory[i]);
         }
+    }
+
+    public float GetTime()
+    {
+        return timerInit;
     }
 }
