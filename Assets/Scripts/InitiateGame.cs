@@ -32,7 +32,7 @@ public class InitiateGame : MonoBehaviour
     {
         for (int i = 0; i < StaticData.playersInGame.Count; i++)
         {
-            StaticData.playersInGame[i].SetActive(toggle);
+            StaticData.playersInGame[i].GetComponent<PlayerController>().enabled = toggle;
         }
     }
 
