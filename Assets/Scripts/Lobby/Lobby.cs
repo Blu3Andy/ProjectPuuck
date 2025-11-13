@@ -11,7 +11,16 @@ public class Lobby : MonoBehaviour
 
     [SerializeField] private ArenaMixer arenaMixer;
 
+    [SerializeField] private int playedRounds = 3;
+
     [SerializeField] private string[] maps;
+
+    private void Start()
+    {
+        StaticData.gameRounds = 1;
+        StaticData.currentGame = 0;
+        StaticData.playersInGame.Clear();
+    }
 
     public void AddJoinedPlayer(GameObject player)
     {
@@ -20,13 +29,15 @@ public class Lobby : MonoBehaviour
 
         DontDestroyOnLoad(player);
         StaticData.playersInGame.Add(player);
+        print("player in static amount:" +StaticData.playersInGame.Count);
     }
 
     public void StartGame()
     {
-        arenaMixer.createLevelPlaylist(playerList.Count);
-        updateMapList();
-        //SceneManager.LoadScene(StaticData.currentArenaPlaylist[StaticData.currentGame]);
+        arenaMixer.createLevelPlaylist(playerList.Count, playedRounds);
+        StaticData.gameRounds = playedRounds;
+        //updateMapList();
+        SceneManager.LoadScene(StaticData.currentArenaPlaylist[StaticData.currentGame]);
 
     }
     

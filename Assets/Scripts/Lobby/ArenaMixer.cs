@@ -9,22 +9,22 @@ public class ArenaMixer : MonoBehaviour
 {
     [SerializeField] private ArenaPrefix[] arenaPrefix;
 
-    [SerializeField] private int matchSize = 3;
-
     [SerializeField] private ReadSceneNames sceneReader;
+
+    private int matchSize;
 
     private string[] pickedArenas = null;
 
     private ArenaPrefix empty = new("", 0);
 
-    public void createLevelPlaylist(int playerCount)
+    public void createLevelPlaylist(int playerCount, int matchSize)
     {
         if (arenaPrefix.Count() < 0) return;
 
+        this.matchSize = matchSize;
+
         pickedArenas = sceneReader.PrintScenes(pickArenaPrefix(playerCount));
         if (pickedArenas == null) return;
-
-        print(pickedArenas.Count());
 
         pickRandomMaps();
     }
@@ -38,14 +38,11 @@ public class ArenaMixer : MonoBehaviour
         while (matchSize > addedMaps.Count)
         {
             var random = UnityEngine.Random.Range(0, pickedArenas.Count() );
-            print("range: " + random);
             if (addedMaps.Contains(random)) continue;
             addedMaps.Add(random);
             temp[i] = pickedArenas[random];
             i++;
-            print(addedMaps.Count);
         }
-        print("loop end");
         StaticData.currentArenaPlaylist = temp;
     }
 

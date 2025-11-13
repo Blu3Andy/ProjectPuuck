@@ -2735,7 +2735,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d561aceae4482684582fb492347fe60a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timerInit: 180
+  timerInit: 10
   goalCounterTeam1: 0
   goalCounterTeam2: 0
   SignTeam1: {fileID: 1607999601}

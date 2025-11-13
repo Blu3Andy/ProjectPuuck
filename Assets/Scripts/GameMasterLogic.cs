@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameMasterLogic : MonoBehaviour
 {
-    [SerializeField] private float timerInit = 180;
+    [SerializeField] private float timerInit = 10;
     [SerializeField] private int goalCounterTeam1 = 0;
     [SerializeField] private int goalCounterTeam2 = 0;
 
@@ -50,7 +51,23 @@ public class GameMasterLogic : MonoBehaviour
 
     void EndGame()
     {
-        print("END");
-        //Nächste Area Laden
+        StaticData.currentGame += 1;
+
+        if (StaticData.currentGame == StaticData.gameRounds)
+        {
+            DestroyList(StaticData.playersInGame);
+            SceneManager.LoadScene("Lobby");
+            return;
+        }
+
+        SceneManager.LoadScene(StaticData.currentArenaPlaylist[StaticData.currentGame]);
     } 
+    
+    private void DestroyList(List<GameObject> toDestory)
+    {
+        for(int i = 0; i < toDestory.Count; i ++)
+        {
+            Destroy(toDestory[i]);
+        }
+    }
 }

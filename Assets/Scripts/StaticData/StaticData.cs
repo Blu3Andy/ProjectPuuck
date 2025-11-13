@@ -8,4 +8,5 @@ static class StaticData
 
     public static string[] currentArenaPlaylist;
     public static int currentGame = 1;
+    public static int gameRounds = 0;
 }

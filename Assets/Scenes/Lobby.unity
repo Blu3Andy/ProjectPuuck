@@ -1214,6 +1214,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   arenaMixer: {fileID: 1598105584}
+  playedRounds: 1
   maps: []
 --- !u!4 &844699363
 Transform:
@@ -2282,11 +2283,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   arenaPrefix:
-  - playListCue: 2v2
+  - playListCue: Arena1
     playerCount: 2
   - playListCue: freeForAll
     playerCount: 3
-  matchSize: 3
   sceneReader: {fileID: 719034211}
 --- !u!4 &1598105585
 Transform:
