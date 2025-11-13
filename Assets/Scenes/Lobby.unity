@@ -645,7 +645,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 498742591}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 51ed76c79847c1d4a88726d9eed3a5eb, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -2283,10 +2283,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   arenaPrefix:
-  - playListCue: Arena1
+  - playListCue: Special
     playerCount: 2
-  - playListCue: freeForAll
-    playerCount: 3
+  - playListCue: Special
+    playerCount: 4
   sceneReader: {fileID: 719034211}
 --- !u!4 &1598105585
 Transform:
@@ -2330,7 +2330,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1711522723}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 51ed76c79847c1d4a88726d9eed3a5eb, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
