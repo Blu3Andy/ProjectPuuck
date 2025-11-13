@@ -12,7 +12,7 @@ public class GameMasterLogic : MonoBehaviour
     public GameObject SignTeam1;
     public GameObject SignTeam2;
 
-    private Vector3 savedPosition = new(0, 0, 0);
+    [SerializeField] private Transform savedPosition;
 
     void Update()
     {
@@ -44,7 +44,7 @@ public class GameMasterLogic : MonoBehaviour
 
     public void PuckReset(GameObject puckObj)
     {                   
-        puckObj.transform.localPosition = savedPosition;
+        puckObj.transform.localPosition = savedPosition.transform.position;
         puckObj.GetComponent<PuckLogic>().StopPuck();
         
     }

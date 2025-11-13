@@ -9,6 +9,12 @@ public class InitiateGame : MonoBehaviour
     [SerializeField] private Transform leftSpawn;
     [SerializeField] private Transform rightSpawn;
 
+    [SerializeField] private List<Transform> leftSpawns;
+    [SerializeField] private List<Transform> rightSpawns;
+
+    private int leftSpawnIndex = 0;
+    private int rightSpawnIndex = 0;
+
     [SerializeField] private List <GameObject> team1;
     [SerializeField] private List <GameObject> team2;
 
@@ -42,13 +48,15 @@ public class InitiateGame : MonoBehaviour
             if (teamID == 1)
             {
                 team1.Add(StaticData.playersInGame[i]);
-                StaticData.playersInGame[i].transform.position = leftSpawn.position;
+                StaticData.playersInGame[i].transform.position = leftSpawns[leftSpawnIndex].position;
+                leftSpawnIndex++;
             }
 
             if (teamID == 2)
             {
                 team2.Add(StaticData.playersInGame[i]);
-                StaticData.playersInGame[i].transform.position = rightSpawn.position;
+                StaticData.playersInGame[i].transform.position = rightSpawns[rightSpawnIndex].position;
+                rightSpawnIndex++;
             }
             
             controller.StopPlayer();     

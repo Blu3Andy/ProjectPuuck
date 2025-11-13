@@ -25,7 +25,7 @@ public class ParticleCelebrationLogic : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(startPlaying && index <= effectArr.Length)
+        if(startPlaying && index <= effectArr.Length-1)
         {
             if(initEffectTimer >= 0.01f)
             {
