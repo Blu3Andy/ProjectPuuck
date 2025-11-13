@@ -41,6 +41,7 @@ public class ParticleCelebrationLogic : MonoBehaviour
                 if(effectArr.Length == index)
                 {
                     startPlaying = false;
+                    index = 0;
                 }
                 
             }
