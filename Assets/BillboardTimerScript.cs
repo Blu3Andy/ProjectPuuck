@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -22,7 +23,9 @@ public class BillboardTimerScript : MonoBehaviour
         {
             time -= Time.deltaTime;
             boardtime = (int)time;
-            textObj.text = boardtime.ToString();
+            string seconds = TimeSpan.FromSeconds(boardtime).Seconds.ToString();
+            if(seconds.Length < 2) seconds = "0" + TimeSpan.FromSeconds(boardtime).Seconds.ToString();
+            textObj.text = TimeSpan.FromSeconds(boardtime).Minutes.ToString()+":"+ seconds;
         }
     }
 }
