@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
 public class GameMasterLogic : MonoBehaviour
@@ -8,22 +9,16 @@ public class GameMasterLogic : MonoBehaviour
     [SerializeField] private float timerInit;
     [SerializeField] private int goalCounterTeam1 = 0;
     [SerializeField] private int goalCounterTeam2 = 0;
+    [SerializeField] private UnityEvent stopTimeEvent = new();
 
     public GameObject SignTeam1;
     public GameObject SignTeam2;
 
     [SerializeField] private Transform savedPosition;
 
-    void Update()
+    void Start()
     {
-        if (timerInit >= 0.1f)
-        {
-            timerInit -= Time.deltaTime;
-        }
-        else
-        {
-            EndGame();
-        }
+        stopTimeEvent.Invoke();
     }
 
     public void GoalsCounterUp(int teamID)
@@ -48,7 +43,7 @@ public class GameMasterLogic : MonoBehaviour
         puckObj.GetComponent<PuckLogic>().StopPuck();   
     }
 
-    void EndGame()
+    private void EndGame()
     {
         StaticData.currentGame += 1;
 
@@ -70,6 +65,10 @@ public class GameMasterLogic : MonoBehaviour
         }
     }
 
+    public void StartEndGame()
+    {
+        EndGame();
+    }
     public float GetTime()
     {
         return timerInit;

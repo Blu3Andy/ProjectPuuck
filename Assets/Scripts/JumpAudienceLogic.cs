@@ -19,7 +19,6 @@ public class JumpAudienceLogic : MonoBehaviour
     {
         isGrounded = true;
         startJumping = false;
-        print("not jumping");
     }
 
     void Update()
@@ -34,7 +33,6 @@ public class JumpAudienceLogic : MonoBehaviour
     
     public void StartMemberJumping()
     {
-        print("jumping");
         startJumping = true;
     }
 }
