@@ -5,20 +5,20 @@ using UnityEngine;
 
 public class MusicLogic : MonoBehaviour
 {
-    public float durationOfEffect;
+    public float durationOfEffect = 2f;
     private AudioLowPassFilter lowPassTrackFilter;
     private bool startTimer = false;
-    public float initTime;
+    private float timer = 0f;
 
     void Start()
     {
         lowPassTrackFilter = gameObject.GetComponent<AudioLowPassFilter>();
-        initTime = durationOfEffect;
     }
 
     public void ChangeMusicFilter()
     {
         startTimer = true;
+        timer = 0f;
         lowPassTrackFilter.cutoffFrequency = 22000;
     }
 
@@ -26,14 +26,13 @@ public class MusicLogic : MonoBehaviour
     {
         if (startTimer)
         {
-            if (initTime >= 0.01f)
+            timer += Time.deltaTime;
+            float valueForLerp = timer / durationOfEffect;
+
+            lowPassTrackFilter.cutoffFrequency = Mathf.Lerp(22000, 400, valueForLerp);
+
+            if (valueForLerp >= 1f)
             {
-                initTime -= Time.deltaTime;
-            }
-            else
-            {
-                lowPassTrackFilter.cutoffFrequency = 400;
-                initTime = durationOfEffect;
                 startTimer = false;
             }
         }

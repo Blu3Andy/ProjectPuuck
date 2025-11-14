@@ -17303,7 +17303,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   durationOfEffect: 3
-  initTime: 0
 --- !u!1 &1756943322
 GameObject:
   m_ObjectHideFlags: 0
@@ -24058,7 +24057,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d561aceae4482684582fb492347fe60a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timerInit: 10
+  timerInit: 180
   goalCounterTeam1: 0
   goalCounterTeam2: 0
   stopTimeEvent:
