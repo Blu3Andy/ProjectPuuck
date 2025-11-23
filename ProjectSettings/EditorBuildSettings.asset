@@ -24,6 +24,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Arenas/2v2Test1.unity
     guid: d6a4ca9bbc9585b4d994c2c8601e9428
   - enabled: 1
+    path: Assets/Scenes/SpecialArenas/SpecialArena_2.unity
+    guid: b8cda21e88cb008468ecf99a70d72d9c
+  - enabled: 1
     path: Assets/Scenes/Arenas/2v2Test2.unity
     guid: aac39fca41f177a4dba005a8b62729a6
   - enabled: 1

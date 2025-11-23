@@ -22,7 +22,7 @@ public class SFXLogic : MonoBehaviour
     {
         if (SfxClips.Length > 0)
         {
-            audioSrc.clip = SfxClips[Random.Range(0, SfxClips.Length-1)];
+            audioSrc.clip = SfxClips[Random.Range(0, SfxClips.Length)];
             audioSrc.Play();
         }
     }
