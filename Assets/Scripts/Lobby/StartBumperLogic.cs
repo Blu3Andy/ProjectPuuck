@@ -15,13 +15,15 @@ public class StartBumperLogic : MonoBehaviour
     private int activePlayer = 0;
     private int currentPlayerCount = 0;
 
+    private bool areTeamsReady = false;
+
     private HashSet<GameObject> playersHashSet = new();
 
     private bool isActive = false;
 
     private void Update()
     {
-        if (activePlayer == currentPlayerCount && currentPlayerCount > 1 && !isActive)
+        if (activePlayer == currentPlayerCount && currentPlayerCount > 1 && areTeamsReady && !isActive )
         {
             startGameEvent.Invoke();
             isActive = true;
@@ -29,8 +31,12 @@ public class StartBumperLogic : MonoBehaviour
 
         if (currentPlayerCount < 2 && currentPlayerCount > 0)
         {
-            if (playerCountText == null) return;
+            if (!playerCountText) return;
             playerCountText.text = "Not enought Players!";
+        }
+        else if(!areTeamsReady)
+        {
+            playerCountText.text ="Choose a Team!";
         }
         else
         {
@@ -42,6 +48,7 @@ public class StartBumperLogic : MonoBehaviour
     
     private void OnCollisionEnter(Collision collision)
     {
+        if(!areTeamsReady) return;
         if (Helper.IsInLayerMask(collision.gameObject, layerMask))
         {
             DecideActivePlayer(collision.gameObject);
@@ -54,6 +61,8 @@ public class StartBumperLogic : MonoBehaviour
         {
             playersHashSet.Add(input);
             activePlayer++;
+            
+
         }
         else
         {
@@ -62,10 +71,17 @@ public class StartBumperLogic : MonoBehaviour
         }
     }
 
+    public void TeamsReady(bool input)
+    {
+        print("Are teams ready? " + areTeamsReady);
+        areTeamsReady = input;
+    }
+
     public void SetCurrentPlayerCount(int set)
     {
         currentPlayerCount = set;
     }
+
     public int getCurrentPlayerCount()
     {
         return currentPlayerCount;

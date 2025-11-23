@@ -14025,6 +14025,14 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: d3c2a9a0e3eaef040b222020c2d8cead, type: 2}
+    - target: {fileID: -4929653215057044871, guid: 6fbdb1904c7115c4b9c9be7a6ec8a74e, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: -3453408080665953928, guid: 6fbdb1904c7115c4b9c9be7a6ec8a74e, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 6fbdb1904c7115c4b9c9be7a6ec8a74e, type: 3}
       propertyPath: m_Name
       value: Arena2
@@ -25201,7 +25209,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1337465883706413092, guid: a25999d73d0630a418832bb5a907b529, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2147600348819784462, guid: a25999d73d0630a418832bb5a907b529, type: 3}
       propertyPath: SFX.Array.size
