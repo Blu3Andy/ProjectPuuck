@@ -38,24 +38,26 @@ public class InitiateGame : MonoBehaviour
 
     private void SpawnPlayer()
     {
+        List<GameObject> player = StaticData.playersInGame;
         for (int i = 0; i < StaticData.playersInGame.Count; i++)
         {
-            var teamLogic = StaticData.playersInGame[i].GetComponent<PlayerTeamLogic>();
-            var controller = StaticData.playersInGame[i].GetComponent<PlayerController>();
+            player[i].GetComponent<ReadyMarkerVisual>().ToggleMarker();
+            var teamLogic = player[i].GetComponent<PlayerTeamLogic>();
+            var controller = player[i].GetComponent<PlayerController>();
 
             int teamID = teamLogic.GetTeamID();
 
             if (teamID == 1)
             {
-                team1.Add(StaticData.playersInGame[i]);
-                StaticData.playersInGame[i].transform.position = leftSpawns[leftSpawnIndex].position;
+                team1.Add(player[i]);
+                player[i].transform.position = leftSpawns[leftSpawnIndex].position;
                 leftSpawnIndex++;
             }
 
             if (teamID == 2)
             {
-                team2.Add(StaticData.playersInGame[i]);
-                StaticData.playersInGame[i].transform.position = rightSpawns[rightSpawnIndex].position;
+                team2.Add(player[i]);
+                player[i].transform.position = rightSpawns[rightSpawnIndex].position;
                 rightSpawnIndex++;
             }
             

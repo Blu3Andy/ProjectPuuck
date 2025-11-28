@@ -29,7 +29,6 @@ public class Lobby : MonoBehaviour
 
         DontDestroyOnLoad(player);
         StaticData.playersInGame.Add(player);
-        print("player in static amount:" +StaticData.playersInGame.Count);
     }
 
     public void StartGame()

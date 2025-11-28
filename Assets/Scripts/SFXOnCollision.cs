@@ -14,7 +14,6 @@ public class SFXOnCollision : MonoBehaviour
     {
         if (Helper.IsInLayerMask(collision.gameObject, layerMaskForColl))
         {
-            print("Hit Object");
             SFXEventObject.Invoke();
         } 
     }

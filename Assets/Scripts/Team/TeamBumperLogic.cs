@@ -51,7 +51,6 @@ public class TeamBumperLogic : MonoBehaviour
 
     public void SetCurrentPlayerCount(int set)
     {
-        print(set);
         if(set <2) return;
         maxTeamSize = set /2;
     }

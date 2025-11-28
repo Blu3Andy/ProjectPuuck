@@ -57,17 +57,19 @@ public class StartBumperLogic : MonoBehaviour
     
     private void DecideActivePlayer(GameObject input)
     {
+        input.TryGetComponent(out ReadyMarkerVisual ready);
+        print(ready);
         if (!playersHashSet.Contains(input))
         {
             playersHashSet.Add(input);
             activePlayer++;
-            
-
+            if(ready) ready.ToggleMarker();
         }
         else
         {
             playersHashSet.Remove(input);
             activePlayer--;
+            if(ready) ready.ToggleMarker();
         }
     }
 
