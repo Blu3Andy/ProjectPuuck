@@ -25,17 +25,26 @@ public class TeamBumperLogic : MonoBehaviour
         TeamIsFullNotification();
     }
 
-    private void DecideActivePlayer(GameObject input)
+    private void DecideActivePlayer(GameObject player)
     {
-        if (!playersHashSet.Contains(input))
+        if (!playersHashSet.Contains(player))
         {
-            playersHashSet.Add(input);
+            playersHashSet.Add(player);
             player.GetComponent<PlayerTeamLogic>().SetTeam(teamID,teamColor); 
         }
         else
         {
-            playersHashSet.Remove(input);
-            player.GetComponent<PlayerTeamLogic>().SetTeam(0,noTeamColor); 
+            playersHashSet.Remove(player);
+            if(IsInTeam(player))
+            {
+                player.GetComponent<PlayerTeamLogic>().SetTeam(0,noTeamColor);
+                return;
+            } 
+            if(!IsInTeam(player))
+            {
+                player.GetComponent<PlayerTeamLogic>().SetTeam(teamID, teamColor);
+                return;
+            }
         }
     }
 
@@ -53,6 +62,13 @@ public class TeamBumperLogic : MonoBehaviour
     {
         if(set <2) return;
         maxTeamSize = set /2;
+    }
+
+    private bool IsInTeam(GameObject player)
+    {
+
+        
+        return player.GetComponent<PlayerTeamLogic>().GetTeamID() == teamID;
     }
 
 

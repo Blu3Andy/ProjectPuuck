@@ -58,7 +58,6 @@ public class StartBumperLogic : MonoBehaviour
     private void DecideActivePlayer(GameObject input)
     {
         input.TryGetComponent(out ReadyMarkerVisual ready);
-        print(ready);
         if (!playersHashSet.Contains(input))
         {
             playersHashSet.Add(input);
@@ -75,7 +74,6 @@ public class StartBumperLogic : MonoBehaviour
 
     public void TeamsReady(bool input)
     {
-        print("Are teams ready? " + areTeamsReady);
         areTeamsReady = input;
     }
 

@@ -20,6 +20,7 @@ public class SFXLogic : MonoBehaviour
 
     private void PlayRandomSound(AudioClip[] SfxClips)
     {
+        if(audioSrc == null) return;
         if (SfxClips.Length > 0)
         {
             audioSrc.clip = SfxClips[Random.Range(0, SfxClips.Length)];
