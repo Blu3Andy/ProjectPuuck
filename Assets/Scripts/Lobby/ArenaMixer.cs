@@ -24,7 +24,6 @@ public class ArenaMixer : MonoBehaviour
         this.matchSize = matchSize;
 
         pickedArenas = sceneReader.PrintScenes(pickArenaPrefix(playerCount));
-        print(pickedArenas);
         if (pickedArenas == null || pickedArenas.Count()==0) return;
 
         

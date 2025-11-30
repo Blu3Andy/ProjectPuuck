@@ -33,16 +33,22 @@ public class Lobby : MonoBehaviour
 
     public void StartGame()
     {
+        
         arenaMixer.createLevelPlaylist(playerList.Count, playedRounds);
         StaticData.gameRounds = playedRounds;
         updateMapList();
-        SceneManager.LoadScene(StaticData.currentArenaPlaylist[StaticData.currentGame]);
-
+        ScreenTransition.instance.Play();
+        Invoke(nameof(LoadNextSceneLobby), 0.5f);
     }
     
     private void updateMapList()
     {
         //print(Time.time);
         maps = StaticData.currentArenaPlaylist;
+    }
+
+    private void LoadNextSceneLobby()
+    {
+         SceneManager.LoadScene(StaticData.currentArenaPlaylist[StaticData.currentGame]);
     }
 }

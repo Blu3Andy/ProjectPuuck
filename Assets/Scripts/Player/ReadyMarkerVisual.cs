@@ -8,7 +8,6 @@ public class ReadyMarkerVisual : MonoBehaviour
     private bool isReady = false;
     public void ToggleMarker()
     {
-        print("kek is toggled");
         isReady = !isReady;
         readyMarker.SetActive(isReady);
     }

@@ -22,8 +22,8 @@ public class BillboardTimerScript : MonoBehaviour
         time = gameMaster.GetComponent<GameMasterLogic>().GetTime();
         textObj = gameObject.GetComponent<Text>();
         initPauseDuration = timePauseDuration;
-        print("time for pause" + initPauseDuration);
     }
+    
     void Update()
     {
         if(!stopTimer)
@@ -51,15 +51,12 @@ public class BillboardTimerScript : MonoBehaviour
             {
                 stopTimer = false;
                 initPauseDuration = timePauseDuration;
-                print("goBackToTimer");
             }
         }
-
     }
 
     public void StopTime()
     {
         stopTimer = true;
-        print(stopTimer);
     }
 }

@@ -32,10 +32,8 @@ public class ReadSceneNames : MonoBehaviour
         {
             var path = SceneUtility.GetScenePathByBuildIndex(i);
             string name = regex.Replace(path, "$2");
-            print(name);
             if(name.Contains(sceneCue)) temp.Add(name);
         }
-        print(temp.Count);
         return temp.ToArray();
     }
     

@@ -12,10 +12,10 @@ public class SFXOnCollision : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        if (Helper.IsInLayerMask(collision.gameObject, layerMaskForColl))
+        if(Helper.IsInLayerMask(collision.gameObject, layerMaskForColl))
         {
             SFXEventObject.Invoke();
-        } 
+        }
     }
 }
 

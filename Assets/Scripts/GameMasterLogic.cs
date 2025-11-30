@@ -16,6 +16,8 @@ public class GameMasterLogic : MonoBehaviour
 
     [SerializeField] private Transform savedPosition;
 
+    private bool ended = false;
+
     void Start()
     {
         stopTimeEvent.Invoke();
@@ -45,16 +47,18 @@ public class GameMasterLogic : MonoBehaviour
 
     private void EndGame()
     {
+        if(ended) return;
+        ended = true;
         StaticData.currentGame += 1;
-
         if (StaticData.currentGame == StaticData.gameRounds)
         {
             DestroyList(StaticData.playersInGame);
-            SceneManager.LoadScene("Lobby");
+            ScreenTransition.instance.Play();
+            Invoke(nameof(LoadLobby), 0.5f);
             return;
         }
-
-        SceneManager.LoadScene(StaticData.currentArenaPlaylist[StaticData.currentGame]);
+        ScreenTransition.instance.Play();
+        Invoke(nameof(LoadNextScene), 0.5f);
     }
 
     private void DestroyList(List<GameObject> toDestory)
@@ -69,8 +73,19 @@ public class GameMasterLogic : MonoBehaviour
     {
         EndGame();
     }
+
     public float GetTime()
     {
         return timerInit;
+    }
+
+    private void LoadNextScene()
+    {
+        SceneManager.LoadScene(StaticData.currentArenaPlaylist[StaticData.currentGame]);
+    }
+
+    private void LoadLobby()
+    {
+        SceneManager.LoadScene("Lobby");
     }
 }
