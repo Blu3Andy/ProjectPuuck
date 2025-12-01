@@ -23,9 +23,14 @@ public class InitiateWinScene : MonoBehaviour
 
         TogglePlayer(true);
 
-        StaticData.ResetTeamData();
         Invoke(nameof(PlayTransition), 10f);
         Invoke(nameof(EndWinScene), 10.5f);
+        StaticData.ResetTeamData();
+    }
+
+    private void Start()
+    {
+        PlayEffects();
     }
 
     private void TogglePlayer(bool toggle)
@@ -59,8 +64,7 @@ public class InitiateWinScene : MonoBehaviour
                 rightSpawnIndex++;
             }
             
-            if(StaticData.winningTeamID == 2) winEffectBlue.Play();
-            if(StaticData.winningTeamID == 1) winEffectOrange.Play();
+            
             controller.StopPlayer();     
         }
     }
@@ -81,5 +85,11 @@ public class InitiateWinScene : MonoBehaviour
         {
             Destroy(toDestory[i]);
         }
+    }
+
+    private void PlayEffects()
+    {
+        if(StaticData.winningTeamID == 2) winEffectBlue.Play();
+        if(StaticData.winningTeamID == 1) winEffectOrange.Play();
     }
 }
