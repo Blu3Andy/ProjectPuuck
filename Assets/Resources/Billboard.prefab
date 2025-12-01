@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 28710938480593986}
   - component: {fileID: 993979669534691984}
   - component: {fileID: 884571263632032502}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: BillboardText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -116,8 +116,8 @@ GameObject:
   - component: {fileID: 3003618958434200869}
   - component: {fileID: 1669048978287576651}
   - component: {fileID: 4108355960171068858}
-  m_Layer: 5
-  m_Name: RightCount
+  m_Layer: 9
+  m_Name: LeftCount
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -139,7 +139,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1779, y: 39}
+  m_AnchoredPosition: {x: 1242, y: 39}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3003618958434200869
@@ -294,8 +294,8 @@ GameObject:
   - component: {fileID: 2001985635389100096}
   - component: {fileID: 7322519755354202827}
   - component: {fileID: 1612344266801491789}
-  m_Layer: 5
-  m_Name: LeftCount
+  m_Layer: 9
+  m_Name: RightCount
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -317,7 +317,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1275, y: 39}
+  m_AnchoredPosition: {x: 1806, y: 39}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2001985635389100096
@@ -387,7 +387,7 @@ GameObject:
   - component: {fileID: 8330507684484848867}
   - component: {fileID: 3761571221212970218}
   - component: {fileID: 4127771157986729137}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: Stopper
   m_TagString: Untagged
   m_Icon: {fileID: 0}

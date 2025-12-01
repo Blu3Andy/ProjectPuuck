@@ -18088,8 +18088,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1912c5840ccc3fe40933374c64a8a2fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  leftSpawn: {fileID: 587793250}
-  rightSpawn: {fileID: 1781385977}
   leftSpawns:
   - {fileID: 587793250}
   - {fileID: 1796786471}
@@ -24159,7 +24157,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d561aceae4482684582fb492347fe60a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timerInit: 180
+  timerInit: 30
   goalCounterTeam1: 0
   goalCounterTeam2: 0
   stopTimeEvent:

@@ -5,10 +5,6 @@ using UnityEngine;
 
 public class InitiateGame : MonoBehaviour
 {
-
-    [SerializeField] private Transform leftSpawn;
-    [SerializeField] private Transform rightSpawn;
-
     [SerializeField] private List<Transform> leftSpawns;
     [SerializeField] private List<Transform> rightSpawns;
 
@@ -41,7 +37,7 @@ public class InitiateGame : MonoBehaviour
         List<GameObject> player = StaticData.playersInGame;
         for (int i = 0; i < StaticData.playersInGame.Count; i++)
         {
-            player[i].GetComponent<ReadyMarkerVisual>().ToggleMarker();
+            player[i].GetComponent<ReadyMarkerVisual>().Disable();
             var teamLogic = player[i].GetComponent<PlayerTeamLogic>();
             var controller = player[i].GetComponent<PlayerController>();
 

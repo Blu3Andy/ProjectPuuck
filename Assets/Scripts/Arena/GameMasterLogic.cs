@@ -49,6 +49,16 @@ public class GameMasterLogic : MonoBehaviour
     {
         if(ended) return;
         ended = true;
+
+        HandleTeamData();
+
+        if(StaticData.winningTeamID != 0)
+        {
+            ScreenTransition.instance.Play();
+            Invoke(nameof(LoadWinScene), 0.5f);
+            return;
+        }
+
         StaticData.currentGame += 1;
         if (StaticData.currentGame == StaticData.gameRounds)
         {
@@ -79,6 +89,21 @@ public class GameMasterLogic : MonoBehaviour
         return timerInit;
     }
 
+    private void HandleTeamData()
+    {
+        if(goalCounterTeam1 > goalCounterTeam2)
+        {
+            StaticData.team1Wins++;
+        }
+        else
+        {
+            StaticData.team2Wins++;
+        }
+
+        if(StaticData.team1Wins > 1) StaticData.winningTeamID = 1;
+        if(StaticData.team2Wins > 1) StaticData.winningTeamID = 2;
+    }
+
     private void LoadNextScene()
     {
         SceneManager.LoadScene(StaticData.currentArenaPlaylist[StaticData.currentGame]);
@@ -87,5 +112,10 @@ public class GameMasterLogic : MonoBehaviour
     private void LoadLobby()
     {
         SceneManager.LoadScene("Lobby");
+    }
+
+    private void LoadWinScene()
+    {
+        SceneManager.LoadScene("WinScene");
     }
 }

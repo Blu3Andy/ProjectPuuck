@@ -6,7 +6,7 @@ using UnityEngine;
 [Serializable]
 public struct ArenaPrefix
 {
-     public string playListCue;
+    public string playListCue;
     public int playerCount;
 
     public ArenaPrefix(string playLCue, int plyCount)
