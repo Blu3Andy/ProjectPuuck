@@ -29,8 +29,6 @@ public class GameMasterLogic : MonoBehaviour
         {
             goalCounterTeam1++;
             SignTeam1.GetComponent<GoalSignLogic>()?.CountUp();
-            
-
         }
         else if(teamID == 2)
         {

@@ -13213,6 +13213,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 236502078543691239, guid: dadeea73b62d97d4da09c2fb09279f41, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.724905
+      objectReference: {fileID: 0}
+    - target: {fileID: 236502078543691239, guid: dadeea73b62d97d4da09c2fb09279f41, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 6.88
+      objectReference: {fileID: 0}
+    - target: {fileID: 236502078543691239, guid: dadeea73b62d97d4da09c2fb09279f41, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.17
+      objectReference: {fileID: 0}
     - target: {fileID: 840437056399726946, guid: dadeea73b62d97d4da09c2fb09279f41, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -13246,12 +13258,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2100000, guid: d3c2a9a0e3eaef040b222020c2d8cead, type: 2}
     - target: {fileID: 8869244751996163856, guid: dadeea73b62d97d4da09c2fb09279f41, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.7249045
+      objectReference: {fileID: 0}
+    - target: {fileID: 8869244751996163856, guid: dadeea73b62d97d4da09c2fb09279f41, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.89
+      value: -6.88
       objectReference: {fileID: 0}
     - target: {fileID: 8869244751996163856, guid: dadeea73b62d97d4da09c2fb09279f41, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.67
+      value: -0.17
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -24164,7 +24180,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d561aceae4482684582fb492347fe60a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timerInit: 30
+  timerInit: 120
   goalCounterTeam1: 0
   goalCounterTeam2: 0
   stopTimeEvent:
@@ -25283,7 +25299,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1337465883706413092, guid: a25999d73d0630a418832bb5a907b529, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2147600348819784462, guid: a25999d73d0630a418832bb5a907b529, type: 3}
       propertyPath: SFX.Array.size

@@ -17,20 +17,22 @@ public class InitiateWinScene : MonoBehaviour
 
     private void Awake()
     {
+
         TogglePlayer(false);
 
         SpawnPlayer();
 
         TogglePlayer(true);
 
-        Invoke(nameof(PlayTransition), 10f);
-        Invoke(nameof(EndWinScene), 10.5f);
+        Invoke(nameof(PlayTransition), 15f);
+        Invoke(nameof(EndWinScene), 15.5f);
+        PlayEffects();
         StaticData.ResetTeamData();
     }
 
     private void Start()
     {
-        PlayEffects();
+        
     }
 
     private void TogglePlayer(bool toggle)

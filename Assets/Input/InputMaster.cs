@@ -127,6 +127,15 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Controls"",
+                    ""type"": ""Button"",
+                    ""id"": ""57cf99e3-c536-4266-bdb9-ad293ce624c4"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -261,6 +270,39 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
                     ""action"": ""Ragdoll"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""371536f1-b047-4d2a-b0d3-9381bbaea4d0"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Controls"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""57d5c749-58d3-4bb7-a2dc-1e088b85d144"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Controls"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c806d3c7-6297-4f38-8a9a-a9b1ee5c4f35"",
+                    ""path"": ""<DualShockGamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Controls"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -296,6 +338,7 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
         m_Player_Bonk = m_Player.FindAction("Bonk", throwIfNotFound: true);
         m_Player_Sprint = m_Player.FindAction("Sprint", throwIfNotFound: true);
         m_Player_Ragdoll = m_Player.FindAction("Ragdoll", throwIfNotFound: true);
+        m_Player_Controls = m_Player.FindAction("Controls", throwIfNotFound: true);
     }
 
     ~@InputMaster()
@@ -380,6 +423,7 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Bonk;
     private readonly InputAction m_Player_Sprint;
     private readonly InputAction m_Player_Ragdoll;
+    private readonly InputAction m_Player_Controls;
     /// <summary>
     /// Provides access to input actions defined in input action map "Player".
     /// </summary>
@@ -407,6 +451,10 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Player/Ragdoll".
         /// </summary>
         public InputAction @Ragdoll => m_Wrapper.m_Player_Ragdoll;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/Controls".
+        /// </summary>
+        public InputAction @Controls => m_Wrapper.m_Player_Controls;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -445,6 +493,9 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
             @Ragdoll.started += instance.OnRagdoll;
             @Ragdoll.performed += instance.OnRagdoll;
             @Ragdoll.canceled += instance.OnRagdoll;
+            @Controls.started += instance.OnControls;
+            @Controls.performed += instance.OnControls;
+            @Controls.canceled += instance.OnControls;
         }
 
         /// <summary>
@@ -468,6 +519,9 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
             @Ragdoll.started -= instance.OnRagdoll;
             @Ragdoll.performed -= instance.OnRagdoll;
             @Ragdoll.canceled -= instance.OnRagdoll;
+            @Controls.started -= instance.OnControls;
+            @Controls.performed -= instance.OnControls;
+            @Controls.canceled -= instance.OnControls;
         }
 
         /// <summary>
@@ -562,5 +616,12 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnRagdoll(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Controls" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnControls(InputAction.CallbackContext context);
     }
 }

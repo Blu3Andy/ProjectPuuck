@@ -24124,7 +24124,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d561aceae4482684582fb492347fe60a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timerInit: 30
+  timerInit: 120
   goalCounterTeam1: 0
   goalCounterTeam2: 0
   stopTimeEvent:

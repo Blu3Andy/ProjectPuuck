@@ -34,7 +34,6 @@ public class ParticleCelebrationLogic : MonoBehaviour
             else
             {
                 effectArr[index].GetComponent<ParticleSystem>().Play();
-                print(index);
                 index++;
                 initEffectTimer = nextEffectTimer;
 
@@ -51,7 +50,6 @@ public class ParticleCelebrationLogic : MonoBehaviour
 
     public void PlayFireworks()
     {
-        print("PlayFireworks");
         startPlaying = true;
     }
 }

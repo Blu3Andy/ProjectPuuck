@@ -24157,7 +24157,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d561aceae4482684582fb492347fe60a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timerInit: 30
+  timerInit: 120
   goalCounterTeam1: 0
   goalCounterTeam2: 0
   stopTimeEvent:
@@ -25207,7 +25207,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1337465883706413092, guid: a25999d73d0630a418832bb5a907b529, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2147600348819784462, guid: a25999d73d0630a418832bb5a907b529, type: 3}
       propertyPath: SFX.Array.size
